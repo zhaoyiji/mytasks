@@ -30,6 +30,37 @@ def test_datetime_content():
     now = datetime.now()
     t = now.strftime("%Y-%m-%d %H:%M:%S")
     result = False
-    if t.startswith("2016-06-12 19:") is True:
+    if t.startswith("2016-06-12 22:") is True:
         result = True
     assert result
+
+
+class TestTask():
+
+    def setup(self):
+        print("TestTask():setup() before each test method")
+
+
+    def teardown(self):
+        print ("TestTask():teardown() after each test method")
+
+    @classmethod
+    def setup_class(cls):
+        print ("setup_class() before any methods in this class")
+
+    @classmethod
+    def teardown_calss(cls):
+        print ("teardown_class() after any methods in this class")
+
+    def test_datetime_format(self):
+        now = datetime.now()
+        t = now.strftime("%Y-%m-%d %H:%M:%S")
+        assert len(t) == 19
+
+    def test_datetime_content(self):
+        now = datetime.now()
+        t = now.strftime("%Y-%m-%d %H:%M:%S")
+        result = False
+        if t.startswith("2016-06-12 22:") is True:
+            result = True
+        assert result
