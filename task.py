@@ -7,8 +7,6 @@ class Task(object):
         self.datetime_start = datetime.now()
         self.datetime_end = datetime.now()
         self.is_day_task = False
-        self.period = 1
-        self.address = ""
+        self.period = False
         self.notification = False
         self.content = ""
-
